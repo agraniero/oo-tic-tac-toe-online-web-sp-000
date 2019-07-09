@@ -89,4 +89,14 @@ class TicTacToe
     full? && !won?
   end
   
+  def over?
+    draw? || won? || full?
+  end
+
+  def winner
+    if winnerr = won?
+      @board[winnerr.first]
+    end
+  end
+  
 end
