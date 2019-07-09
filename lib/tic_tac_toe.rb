@@ -4,6 +4,15 @@ class TicTacToe
     @board = Array.new(9, " ")
   end
   
+  def play
+    turn until over?
+    if won?
+      puts "Congratulations #{winner(board)}!"
+    elsif draw?
+      puts "Cat's Game!"
+    end
+  end
+  
   WIN_COMBINATIONS = [
     [0,1,2],
     [3,4,5],
