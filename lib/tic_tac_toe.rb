@@ -71,4 +71,22 @@ class TicTacToe
     end
   end
   
+  def won?
+    WIN_COMBINATIONS.detect do |combo|
+      @board[combo[0]] == @board[combo[1]] &&
+      @board[combo[1]] == @board[combo[2]] &&
+      position_taken?(combo)
+    end
+  end
+
+  def full?(board)
+    board.all? do |spot| 
+      spot == "X" || spot == "O"
+    end
+  end
+
+  def draw?(board)
+    full?(board) && !won?(board)
+  end
+  
 end
