@@ -41,21 +41,21 @@ class TicTacToe
     end
   end
   
-  def turn(board)
+  def turn
     puts 'Please enter 1-9:'
     user_input = gets.strip
     index = input_to_index(user_input)
-    if valid_move?(board, index)
-      move(board, index, current_player(board))
+    if valid_move?(index)
+      move(index, current_player(board))
       display_board(board)
     else
       turn(board)
     end
   end
   
-  def turn_count(board)
+  def turn_count
     counter = 0
-    board.each do |spot|
+    @board.each do |spot|
       if spot == 'X' || spot == "O"
         counter += 1
       end
